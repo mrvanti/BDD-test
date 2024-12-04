@@ -6,23 +6,10 @@ while (true)
     var name = Console.ReadLine();
 
 
-    var rövarspråket = "";
-    foreach (char c in name ?? "")
-    {
-        if (IsVowel(c))
-        {
-            rövarspråket += c;
-        }
-        else
-        {
-            rövarspråket = rövarspråket + c + "o" + c;
-        }
-    }
+    var rövarspråket = ConvertNameToRövarspråket(name ?? "");
 
     Console.WriteLine("Ditt namn på rövarspråket:");
     Console.WriteLine(rövarspråket);
-
-
 
     Console.WriteLine("Avsluta eller köra igen? 'Esc' för att avsluta applikationen, valfri tangent för att mata in igen.");
 
@@ -35,7 +22,23 @@ while (true)
         Console.WriteLine("\nAvslutar");
         break; // Exit the loop
     }
+}
 
+static string ConvertNameToRövarspråket(string name)
+{
+    var namnPåRövarspråket = "";
+    foreach (char c in name)
+    {
+        if (IsVowel(c))
+        {
+            namnPåRövarspråket += c;
+        }
+        else
+        {
+            namnPåRövarspråket = namnPåRövarspråket + c + "o" + c;
+        }
+    }
+    return namnPåRövarspråket;
 }
 
 static bool IsVowel(char c)
