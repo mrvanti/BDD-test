@@ -113,10 +113,10 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 await this.ScenarioStartAsync();
 #line 8
- await testRunner.GivenAsync("den första siffran är 50", ((string)(null)), ((global::Reqnroll.Table)(null)), "Givet ");
+ await testRunner.GivenAsync("den första siffran är 70", ((string)(null)), ((global::Reqnroll.Table)(null)), "Givet ");
 #line hidden
 #line 9
- await testRunner.AndAsync("den andra siffran är 70", ((string)(null)), ((global::Reqnroll.Table)(null)), "Och ");
+ await testRunner.AndAsync("den andra siffran är 50", ((string)(null)), ((global::Reqnroll.Table)(null)), "Och ");
 #line hidden
 #line 10
  await testRunner.WhenAsync("de två siffrorna adderas", ((string)(null)), ((global::Reqnroll.Table)(null)), "När ");
@@ -147,16 +147,50 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 await this.ScenarioStartAsync();
 #line 14
- await testRunner.GivenAsync("den första siffran är 50", ((string)(null)), ((global::Reqnroll.Table)(null)), "Givet ");
+ await testRunner.GivenAsync("den första siffran är 70", ((string)(null)), ((global::Reqnroll.Table)(null)), "Givet ");
 #line hidden
 #line 15
- await testRunner.AndAsync("den andra siffran är 30", ((string)(null)), ((global::Reqnroll.Table)(null)), "Och ");
+ await testRunner.AndAsync("den andra siffran är 50", ((string)(null)), ((global::Reqnroll.Table)(null)), "Och ");
 #line hidden
 #line 16
  await testRunner.WhenAsync("de två siffrorna subtraheras", ((string)(null)), ((global::Reqnroll.Table)(null)), "När ");
 #line hidden
 #line 17
  await testRunner.ThenAsync("ska resultatet bli 20", ((string)(null)), ((global::Reqnroll.Table)(null)), "Så ");
+#line hidden
+            }
+            await this.ScenarioCleanupAsync();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Multiplicera två tal")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Calculator")]
+        public async System.Threading.Tasks.Task MultipliceraTvaTal()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Multiplicera två tal", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 19
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                await this.ScenarioStartAsync();
+#line 20
+ await testRunner.GivenAsync("den första siffran är 70", ((string)(null)), ((global::Reqnroll.Table)(null)), "Givet ");
+#line hidden
+#line 21
+ await testRunner.AndAsync("den andra siffran är 50", ((string)(null)), ((global::Reqnroll.Table)(null)), "Och ");
+#line hidden
+#line 22
+ await testRunner.WhenAsync("de två siffrorna multipliceras", ((string)(null)), ((global::Reqnroll.Table)(null)), "När ");
+#line hidden
+#line 23
+ await testRunner.ThenAsync("ska resultatet bli 3500", ((string)(null)), ((global::Reqnroll.Table)(null)), "Så ");
 #line hidden
             }
             await this.ScenarioCleanupAsync();

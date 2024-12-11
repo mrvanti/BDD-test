@@ -58,5 +58,13 @@ namespace CalculatorTests.StepDefinitions
 
             summa = service.Subtrahera(siffra1, siffra2);
         }
+
+        [When("de två siffrorna multipliceras")]
+        public void NärTvåSiffrorMultipliceras()
+        {
+            ICalculatorService service = new CalculatorService();
+
+            summa = service.Multiplicera(siffra1, siffra2);
+        }
     }
 }

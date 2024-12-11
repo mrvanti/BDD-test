@@ -16,7 +16,7 @@ namespace Calculator.Implemenations
 
         public int Multiplicera(int value1, int value2)
         {
-            throw new NotImplementedException();
+            return value1 * value2;
         }
 
         public int Subtrahera(int value1, int value2)
