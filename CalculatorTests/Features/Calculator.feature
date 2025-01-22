@@ -22,3 +22,8 @@ Scenario: Multiplicera två tal
 	När de två siffrorna multipliceras
 	Så ska resultatet bli 3500
 
+Scenario: Modulo två tal
+	Givet den första siffran är 10
+	Och att modulo är 3
+	När de två siffrorna moduleras
+	Så ska resten bli 1

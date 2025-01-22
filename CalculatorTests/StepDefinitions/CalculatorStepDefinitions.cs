@@ -11,6 +11,8 @@ namespace CalculatorTests.StepDefinitions
         private int siffra1;
         private int siffra2;
         private int summa;
+        private int modulo;
+        private int rest;
 
         [Given("den första siffran är {int}")]
         public void GivenTheFirstNumberIs(int number)
@@ -32,6 +34,12 @@ namespace CalculatorTests.StepDefinitions
             // Kontrollera att number är en siffra
 
             siffra2 = number;
+        }
+
+        [Given("att modulo är {int}")]
+        public void GivenTheModuloNumberIs(int number)
+        {
+            modulo = number;
         }
 
         [When("de två siffrorna adderas")]
@@ -65,6 +73,20 @@ namespace CalculatorTests.StepDefinitions
             ICalculatorService service = new CalculatorService();
 
             summa = service.Multiplicera(siffra1, siffra2);
+        }
+
+        [When("de två siffrorna moduleras")]
+        public void NärTvåSifforModuleras()
+        {
+            var service = new CalculatorService();
+
+            rest = service.Modulo(siffra1, modulo);
+        }
+
+        [Then("ska resten bli {int}")]
+        public void ThenTheRestenShouldBe(int result)
+        {
+            Assert.AreEqual(rest, result);
         }
     }
 }

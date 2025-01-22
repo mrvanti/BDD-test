@@ -8,6 +8,7 @@ namespace Calculator.Interfaces
         public int Subtrahera(int value1, int value2);
 
         public int Multiplicera(int value1, int value2);
-
+        
+        public int Modulo(int value1, int modulo);
     }
 }

@@ -23,5 +23,10 @@ namespace Calculator.Implemenations
         {
             return value1 - value2;
         }
+
+        public int Modulo(int value1, int modulo)
+        {
+            return value1 % modulo;
+        }
     }
 }
