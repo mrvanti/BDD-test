@@ -229,6 +229,52 @@ this.ScenarioInitialize(scenarioInfo);
             }
             await this.ScenarioCleanupAsync();
         }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Addera två tal från tabell")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Calculator")]
+        public async System.Threading.Tasks.Task AdderaTvaTalFranTabell()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Addera två tal från tabell", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 31
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                await this.ScenarioStartAsync();
+                global::Reqnroll.Table table1 = new global::Reqnroll.Table(new string[] {
+                            "Siffra ett",
+                            "Siffra två"});
+                table1.AddRow(new string[] {
+                            "99",
+                            "33"});
+                table1.AddRow(new string[] {
+                            "20",
+                            "24"});
+#line 32
+ await testRunner.GivenAsync("följande tal", ((string)(null)), table1, "Givet ");
+#line hidden
+#line 36
+ await testRunner.WhenAsync("talen adderas", ((string)(null)), ((global::Reqnroll.Table)(null)), "När ");
+#line hidden
+                global::Reqnroll.Table table2 = new global::Reqnroll.Table(new string[] {
+                            "Resultat"});
+                table2.AddRow(new string[] {
+                            "132"});
+                table2.AddRow(new string[] {
+                            "44"});
+#line 37
+ await testRunner.ThenAsync("ska resultatet bli", ((string)(null)), table2, "Så ");
+#line hidden
+            }
+            await this.ScenarioCleanupAsync();
+        }
     }
 }
 #pragma warning restore

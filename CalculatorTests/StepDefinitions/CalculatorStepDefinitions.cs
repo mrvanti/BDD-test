@@ -13,6 +13,8 @@ namespace CalculatorTests.StepDefinitions
         private int summa;
         private int modulo;
         private int rest;
+        private List<(int siffra1, int siffra2)> siffrorLista;
+        private List<int> resultat;
 
         [Given("den första siffran är {int}")]
         public void GivenTheFirstNumberIs(int number)
@@ -87,6 +89,26 @@ namespace CalculatorTests.StepDefinitions
         public void ThenTheRestenShouldBe(int result)
         {
             Assert.AreEqual(rest, result);
+        }
+
+        [Given("följande tal")]
+        public void GivenTheFollowingNumbers(DataTable table)
+        {
+            siffrorLista = table.Rows.Select(x => (int.Parse(x["Siffra ett"]), int.Parse(x["Siffra två"]))).ToList();
+        }
+
+        [When("talen adderas")]
+        public void WhenTalenAdderas()
+        {
+            resultat = siffrorLista.Select(x => x.siffra1 + x.siffra2).ToList();
+        }
+
+
+        [Then("ska resultatet bli")]
+        public void ThenSkaResultatetBli(DataTable dataTable)
+        {
+            foreach (var res in resultat)
+                Assert.AreEqual(res, int.Parse(dataTable.Rows[resultat.IndexOf(res)]["Resultat"]));
         }
     }
 }
