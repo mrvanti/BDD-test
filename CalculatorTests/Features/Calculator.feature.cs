@@ -195,6 +195,40 @@ this.ScenarioInitialize(scenarioInfo);
             }
             await this.ScenarioCleanupAsync();
         }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Modulo två tal")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Calculator")]
+        public async System.Threading.Tasks.Task ModuloTvaTal()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Modulo två tal", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 25
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                await this.ScenarioStartAsync();
+#line 26
+ await testRunner.GivenAsync("den första siffran är 10", ((string)(null)), ((global::Reqnroll.Table)(null)), "Givet ");
+#line hidden
+#line 27
+ await testRunner.AndAsync("att modulo är 3", ((string)(null)), ((global::Reqnroll.Table)(null)), "Och ");
+#line hidden
+#line 28
+ await testRunner.WhenAsync("de två siffrorna moduleras", ((string)(null)), ((global::Reqnroll.Table)(null)), "När ");
+#line hidden
+#line 29
+ await testRunner.ThenAsync("ska resten bli 1", ((string)(null)), ((global::Reqnroll.Table)(null)), "Så ");
+#line hidden
+            }
+            await this.ScenarioCleanupAsync();
+        }
     }
 }
 #pragma warning restore
