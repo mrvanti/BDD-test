@@ -19,6 +19,14 @@ namespace Calculator.Implemenations
             return value1 * value2;
         }
 
+
+        public int MultipliceraTabell(int value1, int value2)
+        {
+            return value1 * value2;
+        }
+
+
+
         public int Subtrahera(int value1, int value2)
         {
             return value1 - value2;

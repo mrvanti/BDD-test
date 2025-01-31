@@ -1,5 +1,6 @@
 using Calculator.Implemenations;
 using Calculator.Interfaces;
+using Reqnroll.CommonModels;
 
 namespace CalculatorTests.StepDefinitions
 {
@@ -10,7 +11,9 @@ namespace CalculatorTests.StepDefinitions
 
         private int siffra1;
         private int siffra2;
+        private List<(int, int)> parLista;
         private int summa;
+        private List<int> summaList;
 
         [Given("den första siffran är {int}")]
         public void GivenTheFirstNumberIs(int number)
@@ -33,6 +36,11 @@ namespace CalculatorTests.StepDefinitions
 
             siffra2 = number;
         }
+        [Given("att två tal matas in")]
+        public void GivenAttTvaTalMatasIn(DataTable dataTable)
+        {
+            parLista = dataTable.Rows.Select(x => (tal1: int.Parse(x["tal1"]), tal2: int.Parse(x["tal2"]))).ToList();
+        }
 
         [When("de två siffrorna adderas")]
         public void WhenTheTwoNumbersAreAdded()
@@ -49,6 +57,19 @@ namespace CalculatorTests.StepDefinitions
 
             Assert.AreEqual(summa, result);
         }
+        [When("de två siffrorna multipliceras från tabell")]
+        public void WhenDeTvaSiffrornaMultiplicerasFranTabell()
+        {
+            ICalculatorService service = new CalculatorService();
+            summaList = parLista.Select(x => service.Multiplicera(x.Item1, x.Item2)).ToList();
+        }
+        [Then("ska resultatet bli:")]
+        public void ThenSkaResultatetBli(DataTable dataTable)
+        {
+            var expectedRes = dataTable.Rows.Select(x => int.Parse(x["resultat"])).ToList();
+
+            Assert.AreEqual(summaList, expectedRes);
+        }
 
 
         [When("de två siffrorna subtraheras")]
@@ -64,7 +85,20 @@ namespace CalculatorTests.StepDefinitions
         {
             ICalculatorService service = new CalculatorService();
 
-            summa = service.Multiplicera(siffra1, siffra2);
+            summaList.Add(service.Multiplicera(siffra1, siffra2));
+        }
+
+        public override bool Equals(object? obj)
+        {
+            return obj is CalculatorStepDefinitions definitions &&
+                   siffra1 == definitions.siffra1 &&
+                   siffra2 == definitions.siffra2 &&
+                   summa == definitions.summa;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(siffra1, siffra2, summa);
         }
     }
 }

@@ -195,6 +195,57 @@ this.ScenarioInitialize(scenarioInfo);
             }
             await this.ScenarioCleanupAsync();
         }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Multiplikation i miniräknaren")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Calculator")]
+        public async System.Threading.Tasks.Task MultiplikationIMiniraknaren()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Multiplikation i miniräknaren", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 26
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                await this.ScenarioStartAsync();
+                global::Reqnroll.Table table1 = new global::Reqnroll.Table(new string[] {
+                            "tal1",
+                            "tal2"});
+                table1.AddRow(new string[] {
+                            "3",
+                            "5"});
+                table1.AddRow(new string[] {
+                            "4",
+                            "7"});
+                table1.AddRow(new string[] {
+                            "6",
+                            "8"});
+#line 27
+  await testRunner.GivenAsync("att två tal matas in", ((string)(null)), table1, "Givet ");
+#line hidden
+#line 32
+  await testRunner.WhenAsync("de två siffrorna multipliceras från tabell", ((string)(null)), ((global::Reqnroll.Table)(null)), "När ");
+#line hidden
+                global::Reqnroll.Table table2 = new global::Reqnroll.Table(new string[] {
+                            "resultat"});
+                table2.AddRow(new string[] {
+                            "15"});
+                table2.AddRow(new string[] {
+                            "28"});
+                table2.AddRow(new string[] {
+                            "48"});
+#line 33
+  await testRunner.ThenAsync("ska resultatet bli:", ((string)(null)), table2, "Så ");
+#line hidden
+            }
+            await this.ScenarioCleanupAsync();
+        }
     }
 }
 #pragma warning restore

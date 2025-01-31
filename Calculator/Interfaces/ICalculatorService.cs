@@ -9,5 +9,7 @@ namespace Calculator.Interfaces
 
         public int Multiplicera(int value1, int value2);
 
+        public int MultipliceraTabell(int value1, int value2);
+
     }
 }

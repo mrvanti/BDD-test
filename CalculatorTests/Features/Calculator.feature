@@ -22,3 +22,16 @@ Scenario: Multiplicera två tal
 	När de två siffrorna multipliceras
 	Så ska resultatet bli 3500
 
+
+Scenario: Multiplikation i miniräknaren
+  Givet att två tal matas in
+  | tal1 | tal2 | 
+  |   3  |   5  | 
+  |   4  |   7  | 
+  |   6  |   8  | 
+  När de två siffrorna multipliceras från tabell
+  Så ska resultatet bli:
+    | resultat |
+    | 15       |
+    | 28       |
+    | 48       |
